@@ -9,6 +9,9 @@ function add(numbers) {
 		return sum(numberArray);
 	}
 	else {
+		if(parseInt(numbers) < 0) {
+			throw new Error("Negatives not allowed: " + numbers);
+		}
 		return parseInt(numbers);
 	}
 }
