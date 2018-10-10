@@ -1,5 +1,4 @@
 function add(numbers) {
-	
 	if(numbers == "") {
 		return 0;
 	}
@@ -10,6 +9,8 @@ function add(numbers) {
 		if(checkNegatives(numberArray) == false) {
 			return sum(numberArray);	
 		}
+
+		return parseInt(numbers);
 	}
 	else {
 		if(parseInt(numbers) < 0) {
@@ -29,7 +30,7 @@ function checkNegatives(numberArray) {
 		}
 	}
 	if(negativeArray.length > 0) {
-		throw ("Negatives not allowed: " + negativeArray.map(Number));
+		throw new Error("Negatives not allowed: " + negativeArray.map(Number));
 		return true;
 	}
 	return false;
