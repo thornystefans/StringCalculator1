@@ -32,17 +32,19 @@ it("should throw exception if number is negative", () => {
 });
 
 test("should throw exception if numbers are negative", () => {
-	function addNegative() {
-		add("-1, -3");
+	try {
+		expect(add("-1")).toBe(-1);
 	}
-	expect(addNegative).toThrowError("Negatives not allowed: -1,-3")
-	expect(addNegative).toThrowError(Error);
+	catch(e) {
+		console.log(e);
+	}
 });
 
-it("should throw exception if any number is negative", () => {
-	function addNegative() {
-		add("1, -2");
+test("should throw exception if numbers are negative", () => {
+	try {
+		expect(add("-1, -2")).toBe(-1-2);
 	}
-	expect(addNegative).toThrowError(Error);
+	catch(e) {
+		console.log(e);
+	}
 });
-

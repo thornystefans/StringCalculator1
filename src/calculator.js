@@ -29,7 +29,7 @@ function checkNegatives(numberArray) {
 		}
 	}
 	if(negativeArray.length > 0) {
-		throw new Error("Negatives not allowed: " + negativeArray.map(Number));
+		throw ("Negatives not allowed: " + negativeArray.map(Number));
 		return true;
 	}
 	return false;
