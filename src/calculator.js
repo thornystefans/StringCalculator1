@@ -7,15 +7,7 @@ function add(numbers) {
 
 		var numberArray = numbers.split(/[,\n]/);
 
-		var negativeArray = [];
-		j = 0;
-		for(var i = 0; i < numberArray.length; i++) {
-			if(parseInt(numberArray[i]) < 0 ) {
-				negativeArray[j] = parseInt(numberArray[i]);
-				j++;
-			}
-		}
-		if(negativeArray.length > 0) {
+		if(checkNegatives(numberArray) == true) {
 			throw new Error("Negatives not allowed: " + negativeArray.map(Number));
 		}
 
@@ -27,6 +19,21 @@ function add(numbers) {
 		}
 		return parseInt(numbers);
 	}
+}
+
+function checkNegatives(numberArray) {
+	var negativeArray = [];
+	j = 0;
+	for(var i = 0; i < numberArray.length; i++) {
+		if(parseInt(numberArray[i]) < 0 ) {
+			negativeArray[j] = parseInt(numberArray[i]);
+			j++;
+		}
+	}
+	if(negativeArray.length > 0) {
+		return true;
+	}
+	return false;
 }
 
 function sum(numberArray) {
