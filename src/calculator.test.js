@@ -25,26 +25,20 @@ it("should return the sum of multiple numbers", () => {
 });
 
 it("should throw exception if number is negative", () => {
-	function addNegative() {
-		add("-1");
+	try {
+		expect(add("-1")).toBe();
 	}
-	expect(addNegative).toThrowError("Negatives not allowed: -1");
-	expect(addNegative).toThrowError(Error);
+	catch(e) {
+		console.log(e);
+	}
 });
 
-it("should throw exception if numbers are negative", () => {
-	function addNegative() {
-		add("-1,-3");
+it("should throw exception any number is negative", () => {
+	try {
+		expect(add("2, -4, 3, -5")).toBe();
 	}
-	expect(addNegative).toThrowError("Negatives not allowed: -1,-3");
-	expect(addNegative).toThrowError(Error);
-});
-
-it("should throw exception if any number is negative", () => {
-	function addNegative() {
-		add("1,-2");
+	catch(e) {
+		console.log(e);
 	}
-	expect(addNegative).toThrowError("Negatives not allowed: -2");
-	expect(addNegative).toThrowError(Error);
 });
 

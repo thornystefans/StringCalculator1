@@ -14,7 +14,7 @@ function add(numbers) {
 	}
 	else {
 		if(parseInt(numbers) < 0) {
-			throw new Error("Negatives not allowed: " + numbers);
+			throw("Negatives not allowed: " + numbers);
 		}
 		return parseInt(numbers);
 	}
@@ -30,7 +30,7 @@ function checkNegatives(numberArray) {
 		}
 	}
 	if(negativeArray.length > 0) {
-		throw new Error("Negatives not allowed: " + negativeArray.map(Number));
+		throw("Negatives not allowed: " + negativeArray.map(Number));
 		return true;
 	}
 	return false;
