@@ -24,14 +24,14 @@ it("should return the sum of multiple numbers", () => {
 	expect(add("1\n2,3")).toBe(6);
 });
 
-it("should throw exception if number is negative" () => {
+it("should throw exception if number is negative", () => {
 	function addNegative() {
 		add("-1");
 	}
 	expect(addNegative).toThrowError("Negatives not allowed: -1");
 });
 
-it("should throw exception if number is negative" () => {
+it("should throw exception if number is negative", () => {
 	function addNegative() {
 		add("2,-4,3,-5");
 	}
