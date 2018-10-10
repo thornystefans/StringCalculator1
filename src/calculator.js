@@ -7,11 +7,9 @@ function add(numbers) {
 
 		var numberArray = numbers.split(/[,\n]/);
 
-		if(checkNegatives(numberArray) == true) {
-			throw new Error("Negatives not allowed: " + negativeArray.map(Number));
+		if(checkNegatives(numberArray) == false) {
+			return sum(numberArray);	
 		}
-
-		return sum(numberArray);
 	}
 	else {
 		if(parseInt(numbers) < 0) {
@@ -31,6 +29,7 @@ function checkNegatives(numberArray) {
 		}
 	}
 	if(negativeArray.length > 0) {
+		throw new Error("Negatives not allowed: " + negativeArray.map(Number));
 		return true;
 	}
 	return false;
