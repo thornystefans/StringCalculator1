@@ -6,26 +6,36 @@ function add(numbers) {
 
 		var numberArray = numbers.split(/[,\n]/);
 
-		if(checkNegatives(numberArray) == false) {
-			return sum(numberArray);	
+		var sizeArray = [];
+		j = 0;
+		for(var i = 0; i < numberArray.length; i++) {
+			if(parseInt(numberArray[i]) < 1000) {
+				sizeArray[j] = numberArray[i];
+				j++;
+			}
 		}
 
-		return parseInt(numbers);
+		if(checkNegatives(sizeArray) == false) {
+			return sum(sizeArray);	
+		}
 	}
 	else {
 		if(parseInt(numbers) < 0) {
 			throw("Negatives not allowed: " + numbers);
 		}
+		else if(parseInt(numbers) > 1000) {
+			return 0;
+		}
 		return parseInt(numbers);
 	}
 }
 
-function checkNegatives(numberArray) {
+function checkNegatives(sizeArray) {
 	var negativeArray = [];
 	j = 0;
-	for(var i = 0; i < numberArray.length; i++) {
-		if(parseInt(numberArray[i]) < 0 ) {
-			negativeArray[j] = parseInt(numberArray[i]);
+	for(var i = 0; i < sizeArray.length; i++) {
+		if(parseInt(sizeArray[i]) < 0 ) {
+			negativeArray[j] = parseInt(sizeArray[i]);
 			j++;
 		}
 	}
@@ -36,11 +46,11 @@ function checkNegatives(numberArray) {
 	return false;
 }
 
-function sum(numberArray) {
+function sum(sizeArray) {
 
 	var sum = 0;
-	for(var i = 0; i < numberArray.length; i++) {
-		sum += parseInt(numberArray[i]);
+	for(var i = 0; i < sizeArray.length; i++) {
+		sum += parseInt(sizeArray[i]);
 	}
 
 	return sum;

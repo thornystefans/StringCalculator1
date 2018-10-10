@@ -42,3 +42,7 @@ it("should throw exception any number is negative", () => {
 	}
 });
 
+it("should ignore numbers bigger than 1000", () => {
+	expect(add("1001,2")).toBe(2);
+});
+
