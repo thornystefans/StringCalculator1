@@ -6,6 +6,19 @@ function add(numbers) {
 	if(numbers.includes(",") || numbers.includes("\n")) {
 
 		var numberArray = numbers.split(/[,\n]/);
+
+		var negativeArray = [];
+		j = 0;
+		for(var i = 0; i < numberArray.length; i++) {
+			if(parseInt(numberArray[i]) < 0 ) {
+				negativeArray[j] = parseInt(numberArray[i]);
+				j++;
+			}
+		}
+		if(negativeArray.length > 0) {
+			throw new Error("Negatives not allowed: " + negativeArray.map(Number));
+		}
+
 		return sum(numberArray);
 	}
 	else {
