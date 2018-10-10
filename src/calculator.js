@@ -7,13 +7,7 @@ function add(numbers) {
 		var numberArray = numbers.split(/[,\n]/);
 
 		var sizeArray = [];
-		j = 0;
-		for(var i = 0; i < numberArray.length; i++) {
-			if(parseInt(numberArray[i]) < 1000) {
-				sizeArray[j] = numberArray[i];
-				j++;
-			}
-		}
+		sizeArray = validateSize(numberArray);
 
 		if(checkNegatives(sizeArray) == false) {
 			return sum(sizeArray);	
@@ -28,6 +22,18 @@ function add(numbers) {
 		}
 		return parseInt(numbers);
 	}
+}
+
+function validateSize(numberArray) {
+	var sizeArray = [];
+	j = 0;
+	for(var i = 0; i < numberArray.length; i++) {
+		if(parseInt(numberArray[i]) < 1000) {
+			sizeArray[j] = numberArray[i];
+			j++;
+		}
+	}
+	return sizeArray;
 }
 
 function checkNegatives(sizeArray) {
