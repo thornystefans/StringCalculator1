@@ -24,22 +24,18 @@ it("should return the sum of multiple numbers", () => {
 	expect(add("1\n2,3")).toBe(6);
 });
 
-it("should throw exception if number is negative", () => {
-	try {
-		expect(add("-1")).toBe();
+it("should throw exception if number is negative" () => {
+	function addNegative() {
+		add("-1");
 	}
-	catch(e) {
-		console.log(e);
-	}
+	expect(addNegative).toThrowError("Negatives not allowed: -1");
 });
 
-it("should throw exception any number is negative", () => {
-	try {
-		expect(add("2, -4, 3, -5")).toBe();
+it("should throw exception if number is negative" () => {
+	function addNegative() {
+		add("2,-4,3,-5");
 	}
-	catch(e) {
-		console.log(e);
-	}
+	expect(addNegative).toThrowError("Negatives not allowed: -4,-5");
 });
 
 it("should ignore numbers bigger than 1000", () => {
@@ -48,5 +44,9 @@ it("should ignore numbers bigger than 1000", () => {
 
 it("should ignore numbers bigger than 1000", () => {
 	expect(add("1001")).toBe(0);
+});
+
+it("should allow new delimiter and return the sum of given numbers", () => {
+	expect(add("//q\n1q2q3q")).toBe(6);
 });
 

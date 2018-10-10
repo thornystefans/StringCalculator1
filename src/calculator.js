@@ -1,17 +1,17 @@
 function add(numbers) {
+
 	if(numbers == "") {
 		return 0;
 	}
-	if(numbers.includes(",") || numbers.includes("\n")) {
+	var numberArray = [];
+	if(numbers.charAt(0) == "/" && numbers.charAt(1) == "/") {
+		var delimiter = numbers.charAt(2);
+		var numbers = numbers.slice(4, numbers.length);
+		numberArray = numbers.split(delimiter);
+	}
 
-		var numberArray = numbers.split(/[,\n]/);
-
-		var sizeArray = [];
-		sizeArray = validateSize(numberArray);
-
-		if(checkNegatives(sizeArray) == false) {
-			return sum(sizeArray);	
-		}
+	else if(numbers.includes(",") || numbers.includes("\n")) {
+		numberArray = numbers.split(/[,\n]/);
 	}
 	else {
 		if(parseInt(numbers) < 0) {
@@ -21,6 +21,13 @@ function add(numbers) {
 			return 0;
 		}
 		return parseInt(numbers);
+	}
+
+	var sizeArray = [];
+	sizeArray = validateSize(numberArray);
+
+	if(checkNegatives(sizeArray) == false) {
+		return sum(sizeArray);	
 	}
 }
 
